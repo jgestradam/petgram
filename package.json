@@ -4,8 +4,8 @@
   "description": "Repositorio con el código del [Curso Avanzado de React de Platzi](https://platzi.com/cursos/react-avanzado/)",
   "main": "index.js",
   "scripts": {
-    "now-build": "npm run build",
-    "build": "[my-framework] build --output public",
+    "vercel-build": "npm run build",
+    "build": "webpack",
     "lint": "standard",
     "dev": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -42,8 +42,6 @@
     ]
   },
   "eslintConfig": {
-    "extends": [
-      "./node_modules/standard/eslintrc.json"
-    ]
+    "extends": ["./node_modules/standard/eslintrc.json"]
   }
 }
