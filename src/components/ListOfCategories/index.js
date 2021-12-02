@@ -9,7 +9,7 @@ function useCategoriesData () {
 
   useEffect(function () {
     setLoading(true)
-    window.fetch('https://petgram-server-edsf8xpy2.now.sh/categories')
+    window.fetch('https://petgram-server.midudev.now.sh/categories')
       .then(res => res.json())
       .then(response => {
         setCategories(response)
@@ -20,7 +20,7 @@ function useCategoriesData () {
   return { categories, loading }
 }
 
-export const ListOfCategories = () => {
+const ListOfCategoriesComponent = () => {
   const { categories, loading } = useCategoriesData()
   const [showFixed, setShowFixed] = useState(false)
 
@@ -40,7 +40,7 @@ export const ListOfCategories = () => {
       {
         loading
           ? <Item key='loading'><Category /></Item>
-          : categories.map(category => <Item key={category.id}><Category {...category} /></Item>)
+          : categories.map(category => <Item key={category.id}><Category {...category} path={`/pet/${category.id}`} /></Item>)
       }
     </List>
   )
@@ -52,3 +52,5 @@ export const ListOfCategories = () => {
     </Fragment>
   )
 }
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponent)
