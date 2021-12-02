@@ -1,5 +1,0 @@
-yarn prisma migrate save --name NOMBRE_MIGRACION --experimental
-yarn prisma migrate up --experimental
-yarn prisma generate
-
-yarn prisma studio
